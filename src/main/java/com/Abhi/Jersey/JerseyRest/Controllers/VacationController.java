@@ -2,6 +2,7 @@ package com.Abhi.Jersey.JerseyRest.Controllers;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,27 +18,30 @@ import com.Abhi.Jersey.JerseyRest.Services.VacationManager;
 @Path("/staffservice")
 public class VacationController {
 	
-	private VacationManager vM;
-	private List<VacationDetails> details;
+	
+	VacationManager vM = new VacationManager();
+	//private List<VacationDetails> details;
+	
+	String details;
 	
 	@GET
 	@Path("/allstaff")
 	@Produces("application/json")
 	public String GetAllDetails(){
 		System.out.println("success");
-	//	details=vM.GetAllDetails();
+		details=vM.GetAllDetails();
 		
-		return "success";
+		return details;
 		
 	}
 	
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public List<VacationDetails> GetStaffDetails(@PathParam("id") long id){
+	public String GetStaffDetails(@PathParam("id") long id){
 		
-		details=vM.GetstaffDetails(id);
-		
+//		details=vM.GetstaffDetails(id);
+//		
 		return details;
 		
 	}
