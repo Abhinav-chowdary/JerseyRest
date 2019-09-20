@@ -8,12 +8,15 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.swing.text.Document;
+
+import org.bson.Document;
 
 import com.Abhi.Jersey.JerseyRest.CRUDRepo.VacationDetailsCrudRepo;
 import com.Abhi.Jersey.JerseyRest.Entities.VacationDetails;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.Abhi.Jersey.JerseyRest.MongoConnection.MongoConnection;
 
@@ -23,7 +26,7 @@ public class VacationManager extends VacationDetailsCrudRepo {
 	public static final String DB_NAME = "test";
     public static final String COLL_NAME = "Staff";
     protected MongoDatabase db;
-    Mongocoll
+    MongoCollection collection = null;
 
     
 	private EntityManager em;
@@ -40,7 +43,7 @@ public class VacationManager extends VacationDetailsCrudRepo {
 	}
 
 	
-	public MongoCollection<org.bson.Document> GetAllDetails(){
+	public String GetAllDetails(){
 		
 		System.out.println("reached here");
 		
@@ -48,11 +51,11 @@ public class VacationManager extends VacationDetailsCrudRepo {
 		
 		MongoDatabase database = mc.getDatabase("test");
 		
-		MongoCollection<Document> col = database.getCollection("VacationDetails");
+//		MongoCollection<Document> col = database.getCollection("VacationDetails");
 		
-		Document doc =  collection
+//		FindIterable<Document> ls = db.getCollection("VacationDetails").find();
 		
-		System.out.println(col);
+//		System.out.println();
 		
 //		em = GetEntityManager();
 //		em.getTransaction().begin();
@@ -60,7 +63,7 @@ public class VacationManager extends VacationDetailsCrudRepo {
 //		em.getTransaction().commit();
 //		em.close();
 		
-		return col;
+		return "all good";
 	}
 	
 	@SuppressWarnings("unchecked")
