@@ -23,11 +23,11 @@ public class VacationController {
 	@GET
 	@Path("/allstaff")
 	@Produces("application/json")
-	public List<VacationDetails> GetAllDetails(){
+	public String GetAllDetails(){
+		System.out.println("success");
+	//	details=vM.GetAllDetails();
 		
-		details=vM.GetAllDetails();
-		
-		return details;
+		return "success";
 		
 	}
 	

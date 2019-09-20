@@ -17,9 +17,12 @@ public class VacationManager extends VacationDetailsCrudRepo {
 
 	
 	public List<VacationDetails> GetAllDetails(){
+		System.out.println("in here");
+		
+		
 		em = GetEntityManager();
 		em.getTransaction().begin();
-		vacationDetails = em.createQuery("select * from VacationDetails").getResultList();
+		vacationDetails = em.Quer
 		em.getTransaction().commit();
 		em.close();
 		return vacationDetails;
