@@ -23,6 +23,7 @@ public class VacationManager extends VacationDetailsCrudRepo {
 	public static final String DB_NAME = "test";
     public static final String COLL_NAME = "Staff";
     protected MongoDatabase db;
+    Mongocoll
 
     
 	private EntityManager em;
